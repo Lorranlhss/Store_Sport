@@ -22,11 +22,12 @@ export class ProductListComponent implements OnInit {
       next: (data) => {
         this.products = data;
         this.loading = false;
+        console.log('Produtos carregados:', data);
       },
       error: (err) => {
-        this.error = 'Erro ao carregar produtos';
+        this.error = 'Erro ao carregar produtos: ' + err.message;
         this.loading = false;
-        console.error(err);
+        console.error('Erro:', err);
       }
     });
   }
